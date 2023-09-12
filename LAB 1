@@ -1,0 +1,93 @@
+//ENCRYPTION USING SUBSTITUTION CYPHER 
+
+#include<iostream>
+#include<bits/stdc++.h>
+#include<string.h>
+using namespace std;
+void decrypt(string s,int len)
+{
+  cout<<"ENTER THE CORRECT KEY TO DECRYPT :- ";
+  int key;
+  cin>>key;
+  if(key==4)
+  {
+    cout<<"ORIGINAL DECRYPTED TEXT IS :- ";
+    for(int i=0;i<len;i++)
+    {
+      if((s[i]>=65)&&(s[i])<=90)
+    {
+      if(s[i]-4<65)
+      {
+        s[i]=90-(64-(s[i]-4));
+      }
+      else{
+        s[i]=s[i]-4;
+      }
+    }
+    else{
+       if(s[i]-4<97)
+      {
+        s[i]=122-(96-(s[i]-4));
+      }
+      else{
+        s[i]=s[i]-4;
+      }
+    }
+    }
+    cout<<s;
+  }
+  else{
+    cout<<"WRONG KEY!!!!";
+  }
+}
+void encrypt(string s,int len)
+{
+  for(int i=0;i<len;i++)
+  {
+    if((s[i]>=65)&&(s[i])<=90)
+    {
+        if(((s[i])+4)>90)
+        {
+          s[i]=((s[i]+4)%90)+64;
+        }
+        else{
+          s[i]=s[i]+4;
+        }
+    }
+    else{
+       if(((s[i])+4)>122)
+        {
+          s[i]=((s[i]+4)%122)+96;
+        }
+        else{
+          s[i]=s[i]+4;
+        }
+    }
+  }
+  cout<<"ENCRPYTED TEXT IS :- "<<s<<"\n";
+  cout<<"ENTER 1 IF YOU WANT TO DECRYPT NOW , ELSE EXIT :-";
+  int temp;
+  cin>>temp;
+  if(temp==1)
+  {
+   decrypt(s,len);
+  }
+}
+int main()
+{
+  string s;
+  cout<<"ENTER THE TEXT :- ";
+  cin>>s;
+  int len=s.length();
+  cout<<"ENTER 1 TO ENCRYPT AND 0 TO DECRYPT :- ";
+  int temp;
+  cin>>temp;
+  if(temp==1)
+  {
+     encrypt(s,len);
+  }
+  else{
+     decrypt(s,len);
+  }
+  return 0;
+}
