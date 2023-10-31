@@ -1,0 +1,59 @@
+//4 BIT TO 7 BIT HAMMING CODE GENERATOR
+#include<iostream>
+#include<string.h>
+#include<bits/stdc++.h>
+using namespace std;
+int eo;
+char check(string s)
+{
+   int temp=0;
+   for(int i=0;i<3;i++)
+   {
+    if(s[i]=='1')
+    {
+      temp++;
+    }
+   }
+   if(eo==1)
+   {
+   if(temp%2==0)
+   {
+    return '0';
+   }
+   else{
+    return '1';
+   }
+   }
+   else{
+    if(temp%2==0)
+    {
+      return '1';
+    }
+    else{
+      return '0';
+    }
+   }
+}
+int main()
+{
+  cout<<"ENTER THE 4 bit code YOU WANT TO MAKE HAMMING CODE OF :- "<<endl;
+  string s;
+  cin>>s;
+  cout<<"ENTERED CODE IS :- "<<s<<endl;
+  cout<<"ENTER 1 FOR EVEN PARITY AND 2 FOR ODD PARITY :- ";
+  cin>>eo;
+  char p1,p2,p3;
+  string temp="";
+  temp=temp+s[0]+s[2]+s[3];
+  p1=check(temp);
+  temp="";
+  temp=temp+s[0]+s[1]+s[3];
+  p2=check(temp);
+  temp="";
+  temp=temp+s[0]+s[1]+s[2];
+  p3=check(temp);
+  string ans="";
+  ans=ans+s[0]+s[1]+s[2]+p3+s[3]+p2+p1;
+  cout<<"HAMMING CODE :- "<<ans;
+  return 0;
+}
