@@ -1,0 +1,31 @@
+//BIT STUFFING
+#include<iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+  string s;
+  cout<<"ENTER THE CODE TO BITSTUFF :- ";
+  cin>>s;
+  string ans="";
+  int temp=0;
+  for(int i=0;i<s.length();i++)
+  {
+    if(s[i]=='1')
+    {
+       temp++;
+       ans=ans+s[i];
+    }
+    else{
+      temp=0;
+      ans=ans+s[i];
+    }
+    if(temp==5)
+    {
+      ans=ans+'0';
+      temp=0;
+    }
+  }
+  cout<<"STUFFED CODE IS :- "<<ans;
+  return 0;
+}
