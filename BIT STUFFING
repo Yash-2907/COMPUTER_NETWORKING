@@ -2,6 +2,29 @@
 #include<iostream>
 #include<string.h>
 using namespace std;
+void decode (string s)
+{
+  string ans="";
+  int temp=0;
+  for(int i=0;i<s.length();i++)
+  {
+    if(s[i]=='1')
+    {
+      temp++;
+      ans=ans+s[i];
+    }
+    else{
+      temp=0;
+      ans=ans+s[i];
+    }
+    if(temp==5)
+    {
+      i++;
+      temp=0;
+    }
+  }
+  cout<<"DECOED CODE IS :- "<<ans;
+}
 int main()
 {
   string s;
@@ -26,6 +49,13 @@ int main()
       temp=0;
     }
   }
-  cout<<"STUFFED CODE IS :- "<<ans;
+  cout<<"STUFFED CODE IS :- "<<ans<<endl;
+  cout<<"ENTER 1 TO DECODE ELSE ANYTHING ELSE TO EXIT :- ";
+  int t;
+  cin>>t;
+  if(t==1)
+  {
+    decode(ans);
+  }
   return 0;
 }
