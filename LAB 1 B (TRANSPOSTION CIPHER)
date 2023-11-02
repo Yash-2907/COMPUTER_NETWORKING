@@ -1,0 +1,26 @@
+//transpostion cipher
+#include<iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+  string s;
+  cout<<"ENTER THE TEXT TO CODE (USE _ FOR SPACE) :- ";
+  cin>>s;
+  cout<<"ENTERED STRING IS :- "<<s<<endl;
+  int depth;
+  cout<<"ENTER THE DEPTH OF TRANSPOSITION :- ";
+  cin>>depth;
+  string ans="";
+  for(int i=0;i<depth;i++)
+  {
+    string temp("");
+    for(int j=i;j<s.length();j=j+4)
+    {
+      temp=temp+s[j];
+    }
+    ans=ans+temp;
+  }
+  cout<<"ENCODED CODE IS :- "<<ans;
+  return 0;
+}
